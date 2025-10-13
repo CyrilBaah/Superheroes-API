@@ -1,12 +1,20 @@
 from decimal import Decimal
+
 from django.core.management.base import BaseCommand
+
 from superheroes.models import Superhero
 
 
 class Command(BaseCommand):
+    """
+    A Django management command to populate the database with sample superhero data.
+    This command can be run multiple times; it will not create duplicates.
+    """
+
     help = "Populate the database with sample superheroes data"
 
     def add_arguments(self, parser):
+        """Adds command-line arguments to the command."""
         parser.add_argument(
             "--clear",
             action="store_true",
@@ -14,10 +22,13 @@ class Command(BaseCommand):
         )
 
     def handle(self, *args, **options):
+        """The main logic for the command."""
         if options["clear"]:
+            self.stdout.write(self.style.WARNING("Clearing all existing superheroes..."))
             Superhero.objects.all().delete()
-            self.stdout.write(self.style.WARNING("Cleared all existing superheroes."))
+            self.stdout.write(self.style.SUCCESS("Successfully cleared the database."))
 
+        # A consolidated and cleaned list of sample superheroes.
         sample_superheroes = [
             {
                 "name": "Spider-Man",
@@ -26,14 +37,9 @@ class Command(BaseCommand):
                 "age": 25,
                 "height": Decimal("175.50"),
                 "weight": Decimal("70.00"),
-                "powers": (
-                    "Web-slinging, wall-crawling, spider-sense, "
-                    "superhuman strength and agility"
-                ),
+                "powers": "Web-slinging, wall-crawling, spider-sense, superhuman strength and agility",
                 "power_level": 7,
-                "origin_story": (
-                    "Bitten by a radioactive spider while on a school field trip"
-                ),
+                "origin_story": "Bitten by a radioactive spider while on a school field trip",
                 "universe": "Marvel",
                 "is_active": True,
                 "is_villain": False,
@@ -45,15 +51,9 @@ class Command(BaseCommand):
                 "age": 35,
                 "height": Decimal("188.00"),
                 "weight": Decimal("95.00"),
-                "powers": (
-                    "Martial arts mastery, detective skills, advanced technology, "
-                    "peak human conditioning"
-                ),
+                "powers": "Martial arts mastery, detective skills, advanced technology, peak human conditioning",
                 "power_level": 6,
-                "origin_story": (
-                    "Witnessed his parents' murder as a child, "
-                    "dedicated his life to fighting crime"
-                ),
+                "origin_story": "Witnessed his parents murder as a child, dedicated his life to fighting crime",
                 "universe": "DC",
                 "is_active": True,
                 "is_villain": False,
@@ -65,15 +65,9 @@ class Command(BaseCommand):
                 "age": 30,
                 "height": Decimal("191.00"),
                 "weight": Decimal("107.00"),
-                "powers": (
-                    "Flight, super strength, invulnerability, heat vision, "
-                    "x-ray vision, super speed"
-                ),
+                "powers": "Flight, super strength, invulnerability, heat vision, x-ray vision, super speed",
                 "power_level": 10,
-                "origin_story": (
-                    "Last son of Krypton, sent to Earth as a baby "
-                    "before his planet was destroyed"
-                ),
+                "origin_story": "Last son of Krypton, sent to Earth as a baby before his planet was destroyed",
                 "universe": "DC",
                 "is_active": True,
                 "is_villain": False,
@@ -85,10 +79,7 @@ class Command(BaseCommand):
                 "age": 3000,
                 "height": Decimal("183.00"),
                 "weight": Decimal("74.00"),
-                "powers": (
-                    "Super strength, flight, lasso of truth, "
-                    "bulletproof bracelets, combat skills"
-                ),
+                "powers": "Super strength, flight, lasso of truth, bulletproof bracelets, combat skills",
                 "power_level": 9,
                 "origin_story": "Amazonian princess from Themyscira, daughter of Zeus",
                 "universe": "DC",
@@ -102,14 +93,9 @@ class Command(BaseCommand):
                 "age": 45,
                 "height": Decimal("185.00"),
                 "weight": Decimal("102.00"),
-                "powers": (
-                    "Genius intellect, powered armor suit, repulsors, "
-                    "flight, advanced AI"
-                ),
+                "powers": "Genius intellect, powered armor suit, repulsors, flight, advanced AI",
                 "power_level": 8,
-                "origin_story": (
-                    "Billionaire inventor who built a suit of armor to escape captivity"
-                ),
+                "origin_story": "Billionaire inventor who built a suit of armor to escape captivity",
                 "universe": "Marvel",
                 "is_active": True,
                 "is_villain": False,
@@ -121,15 +107,9 @@ class Command(BaseCommand):
                 "age": 40,
                 "height": Decimal("185.00"),
                 "weight": Decimal("86.00"),
-                "powers": (
-                    "Genius-level intellect, unpredictability, toxins, "
-                    "psychological warfare"
-                ),
+                "powers": "Genius-level intellect, unpredictability, toxins, psychological warfare",
                 "power_level": 5,
-                "origin_story": (
-                    "Fell into a vat of chemicals, driving him insane "
-                    "and bleaching his skin"
-                ),
+                "origin_story": "Fell into a vat of chemicals, driving him insane and bleaching his skin",
                 "universe": "DC",
                 "is_active": True,
                 "is_villain": True,
@@ -141,13 +121,9 @@ class Command(BaseCommand):
                 "age": 50,
                 "height": Decimal("180.00"),
                 "weight": Decimal("84.00"),
-                "powers": (
-                    "Enhanced strength, glider flight, pumpkin bombs, genius intellect"
-                ),
+                "powers": "Enhanced strength, glider flight, pumpkin bombs, genius intellect",
                 "power_level": 6,
-                "origin_story": (
-                    "Chemical formula gave him enhanced abilities but drove him insane"
-                ),
+                "origin_story": "Chemical formula gave him enhanced abilities but drove him insane",
                 "universe": "Marvel",
                 "is_active": True,
                 "is_villain": True,
@@ -159,10 +135,7 @@ class Command(BaseCommand):
                 "age": 100,
                 "height": Decimal("188.00"),
                 "weight": Decimal("109.00"),
-                "powers": (
-                    "Enhanced strength, speed, agility, endurance, "
-                    "vibranium shield, tactical genius"
-                ),
+                "powers": "Enhanced strength, speed, agility, endurance, vibranium shield, tactical genius",
                 "power_level": 7,
                 "origin_story": "Weak soldier enhanced by super-soldier serum during WWII",
                 "universe": "Marvel",
@@ -178,10 +151,7 @@ class Command(BaseCommand):
                 "weight": Decimal("81.00"),
                 "powers": "Super speed, time travel, phasing, speed force manipulation",
                 "power_level": 9,
-                "origin_story": (
-                    "Struck by lightning while working in his lab, "
-                    "gained connection to the Speed Force"
-                ),
+                "origin_story": "Struck by lightning while working in his lab, gained connection to Speed Force",
                 "universe": "DC",
                 "is_active": True,
                 "is_villain": False,
@@ -195,9 +165,7 @@ class Command(BaseCommand):
                 "weight": Decimal("136.00"),
                 "powers": "Healing factor, adamantium claws, enhanced senses, longevity",
                 "power_level": 8,
-                "origin_story": (
-                    "Born with mutant abilities, subjected to the Weapon X program"
-                ),
+                "origin_story": "Born with mutant abilities, subjected to Weapon X program",
                 "universe": "Marvel",
                 "is_active": True,
                 "is_villain": False,
@@ -209,15 +177,9 @@ class Command(BaseCommand):
                 "age": 35,
                 "height": Decimal("170.00"),
                 "weight": Decimal("59.00"),
-                "powers": (
-                    "Expert martial artist, master spy, skilled marksman, "
-                    "peak human agility and reflexes"
-                ),
+                "powers": "Expert martial artist, master spy, skilled marksman, peak human agility and reflexes",
                 "power_level": 7,
-                "origin_story": (
-                    "Trained in the Red Room program as a Russian spy and assassin, "
-                    "later defected to S.H.I.E.L.D. and became an Avenger"
-                ),
+                "origin_story": "Trained in the Red Room program, later defected to S.H.I.E.L.D.",
                 "universe": "Marvel",
                 "is_active": True,
                 "is_villain": False,
@@ -229,15 +191,9 @@ class Command(BaseCommand):
                 "age": 40,
                 "height": Decimal("244.00"),
                 "weight": Decimal("635.00"),
-                "powers": (
-                    "Superhuman strength, regeneration, endurance, "
-                    "resistance to injury, transformation triggered by anger"
-                ),
+                "powers": "Superhuman strength, regeneration, endurance, transformation triggered by anger",
                 "power_level": 10,
-                "origin_story": (
-                    "After exposure to gamma radiation during an experiment gone wrong, "
-                    "scientist Bruce Banner transforms into the Hulk whenever he experiences extreme emotional stress"
-                ),
+                "origin_story": "Exposed to gamma radiation, Bruce Banner transforms when angered.",
                 "universe": "Marvel",
                 "is_active": True,
                 "is_villain": False,
@@ -246,45 +202,33 @@ class Command(BaseCommand):
                 "name": "Aquaman",
                 "real_name": "Arthur Curry",
                 "alias": "King of Atlantis",
-                "age": 35,
+                "age": 36,
                 "height": Decimal("185.00"),
-                "weight": Decimal("107.00"),
-                "powers": (
-                    "Superhuman strength, durability, control over marine life, "
-                    "can breathe underwater, expert swimmer"
-                ),
+                "weight": Decimal("101.00"),
+                "powers": "Superhuman strength, underwater breathing, marine life communication, enhanced swimming speed",
                 "power_level": 9,
-                "origin_story": (
-                    "Son of a human lighthouse keeper and the queen of Atlantis, "
-                    "raised to be the bridge between the surface world and the sea"
-                ),
+                "origin_story": "Born to a human father and Atlantean mother, destined to unite the surface and sea.",
                 "universe": "DC",
                 "is_active": True,
                 "is_villain": False,
             },
             {
-                "name": "Shazam",
-                "real_name": "Billy Batson",
-                "alias": "The Champion of Eternity",
-                "age": 15,
-                "height": Decimal("180.00"),
+                "name": "Black Panther",
+                "real_name": "T'Challa",
+                "alias": "The King of Wakanda",
+                "age": 32,
+                "height": Decimal("183.00"),
                 "weight": Decimal("90.00"),
-                "powers": (
-                    "Magical transformation granting powers of ancient gods: "
-                    "super strength, flight, lightning manipulation, speed, "
-                    "and magical resistance"
-                ),
+                "powers": "Enhanced abilities from the Heart-Shaped Herb, master combatant, genius intellect, vibranium suit",
                 "power_level": 9,
-                "origin_story": (
-                    "A young boy chosen by the ancient wizard Shazam to become "
-                    "Earth’s mightiest mortal by uttering the word 'SHAZAM'"
-                ),
-                "universe": "DC",
+                "origin_story": "After his father's death, T'Challa became king of Wakanda and the Black Panther.",
+                "universe": "Marvel",
                 "is_active": True,
                 "is_villain": False,
-            },
+            }
         ]
 
+        self.stdout.write("Starting to populate superheroes...")
         created_count = 0
         for superhero_data in sample_superheroes:
             superhero, created = Superhero.objects.get_or_create(
@@ -292,13 +236,16 @@ class Command(BaseCommand):
             )
             if created:
                 created_count += 1
-                self.stdout.write(f"Created superhero: {superhero.name}")
+                self.stdout.write(f"  - Created superhero: {superhero.name}")
             else:
-                self.stdout.write(f"Superhero already exists: {superhero.name}")
+                self.stdout.write(
+                    f"  - Superhero already exists, skipping: {superhero.name}"
+                )
 
         self.stdout.write(
             self.style.SUCCESS(
-                f"Successfully populated {created_count} new superheroes. "
+                f"\nSuccessfully populated {created_count} new superheroes. "
                 f"Total superheroes in database: {Superhero.objects.count()}"
             )
         )
+
