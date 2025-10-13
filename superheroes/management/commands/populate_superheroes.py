@@ -235,7 +235,24 @@ class Command(BaseCommand):
                 "universe": "Marvel",
                 "is_active": True,
                 "is_villain": False,
-            }
+            },
+
+            {
+            "name": "Aquaman",
+            "real_name": "Arthur Curry",
+            "alias": "King of Atlantis",
+            "age": 35,
+            "height": Decimal("185.00"),
+            "weight": Decimal("107.00"),
+            "powers": "Superhuman strength, durability, control over marine life, can breathe underwater, expert swimmer",
+            "power_level": 9,
+            "origin_story": (
+                "Son of a human lighthouse keeper and the queen of Atlantis, raised to be the bridge between the surface world and the sea"
+            ),
+            "universe": "DC",
+            "is_active": True,
+            "is_villain": False,
+        }
 
         ]
 
