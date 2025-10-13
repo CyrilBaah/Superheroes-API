@@ -1,7 +1,5 @@
 from decimal import Decimal
-
 from django.core.management.base import BaseCommand
-
 from superheroes.models import Superhero
 
 
@@ -53,7 +51,7 @@ class Command(BaseCommand):
                 ),
                 "power_level": 6,
                 "origin_story": (
-                    "Witnessed his parents murder as a child, "
+                    "Witnessed his parents' murder as a child, "
                     "dedicated his life to fighting crime"
                 ),
                 "universe": "DC",
@@ -182,7 +180,7 @@ class Command(BaseCommand):
                 "power_level": 9,
                 "origin_story": (
                     "Struck by lightning while working in his lab, "
-                    "gained connection to Speed Force"
+                    "gained connection to the Speed Force"
                 ),
                 "universe": "DC",
                 "is_active": True,
@@ -198,7 +196,7 @@ class Command(BaseCommand):
                 "powers": "Healing factor, adamantium claws, enhanced senses, longevity",
                 "power_level": 8,
                 "origin_story": (
-                    "Born with mutant abilities, subjected to Weapon X program"
+                    "Born with mutant abilities, subjected to the Weapon X program"
                 ),
                 "universe": "Marvel",
                 "is_active": True,
@@ -211,10 +209,14 @@ class Command(BaseCommand):
                 "age": 35,
                 "height": Decimal("170.00"),
                 "weight": Decimal("59.00"),
-                "powers": "Expert martial artist, master spy, skilled marksman, peak human agility and reflexes",
+                "powers": (
+                    "Expert martial artist, master spy, skilled marksman, "
+                    "peak human agility and reflexes"
+                ),
                 "power_level": 7,
                 "origin_story": (
-                    "Trained in the Red Room program as a Russian spy and assassin, later defected to S.H.I.E.L.D. and became an Avenger"
+                    "Trained in the Red Room program as a Russian spy and assassin, "
+                    "later defected to S.H.I.E.L.D. and became an Avenger"
                 ),
                 "universe": "Marvel",
                 "is_active": True,
@@ -227,33 +229,60 @@ class Command(BaseCommand):
                 "age": 40,
                 "height": Decimal("244.00"),
                 "weight": Decimal("635.00"),
-                "powers": "Superhuman strength, regeneration, endurance, resistance to injury, transformation triggered by anger",
+                "powers": (
+                    "Superhuman strength, regeneration, endurance, "
+                    "resistance to injury, transformation triggered by anger"
+                ),
                 "power_level": 10,
                 "origin_story": (
-                    "After exposure to gamma radiation during an experiment gone wrong, scientist Bruce Banner transforms into the Hulk whenever he experiences extreme emotional stress"
+                    "After exposure to gamma radiation during an experiment gone wrong, "
+                    "scientist Bruce Banner transforms into the Hulk whenever he experiences extreme emotional stress"
                 ),
                 "universe": "Marvel",
                 "is_active": True,
                 "is_villain": False,
             },
-
             {
-            "name": "Aquaman",
-            "real_name": "Arthur Curry",
-            "alias": "King of Atlantis",
-            "age": 35,
-            "height": Decimal("185.00"),
-            "weight": Decimal("107.00"),
-            "powers": "Superhuman strength, durability, control over marine life, can breathe underwater, expert swimmer",
-            "power_level": 9,
-            "origin_story": (
-                "Son of a human lighthouse keeper and the queen of Atlantis, raised to be the bridge between the surface world and the sea"
-            ),
-            "universe": "DC",
-            "is_active": True,
-            "is_villain": False,
-        }
-
+                "name": "Aquaman",
+                "real_name": "Arthur Curry",
+                "alias": "King of Atlantis",
+                "age": 35,
+                "height": Decimal("185.00"),
+                "weight": Decimal("107.00"),
+                "powers": (
+                    "Superhuman strength, durability, control over marine life, "
+                    "can breathe underwater, expert swimmer"
+                ),
+                "power_level": 9,
+                "origin_story": (
+                    "Son of a human lighthouse keeper and the queen of Atlantis, "
+                    "raised to be the bridge between the surface world and the sea"
+                ),
+                "universe": "DC",
+                "is_active": True,
+                "is_villain": False,
+            },
+            {
+                "name": "Shazam",
+                "real_name": "Billy Batson",
+                "alias": "The Champion of Eternity",
+                "age": 15,
+                "height": Decimal("180.00"),
+                "weight": Decimal("90.00"),
+                "powers": (
+                    "Magical transformation granting powers of ancient gods: "
+                    "super strength, flight, lightning manipulation, speed, "
+                    "and magical resistance"
+                ),
+                "power_level": 9,
+                "origin_story": (
+                    "A young boy chosen by the ancient wizard Shazam to become "
+                    "Earth’s mightiest mortal by uttering the word 'SHAZAM'"
+                ),
+                "universe": "DC",
+                "is_active": True,
+                "is_villain": False,
+            },
         ]
 
         created_count = 0
