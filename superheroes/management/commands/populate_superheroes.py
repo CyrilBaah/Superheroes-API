@@ -289,6 +289,23 @@ class Command(BaseCommand):
                 "is_villain": False,
             },
             {
+                "name": "The Flash",
+                "real_name": "Barry Allen",
+                "alias": "Scarlet Speedster",
+                "age": 29,
+                "height": Decimal("183.00"),
+                "weight": Decimal("81.00"),
+                "powers": "Superhuman speed, accelerated healing, time travel, dimensional travel, enhanced reflexes, molecular vibration",
+                "power_level": 9,
+                "origin_story": (
+                    "After being struck by lightning and doused in chemicals in a freak accident, forensic scientist Barry Allen gained super-speed and dedicated his life to fighting crime as The Flash"
+                ),
+                "universe": "DC",
+                "is_active": True,
+                "is_villain": False,
+            },
+            {
+
                 "name": "Quantum Guardian",
                 "real_name": "Dr. Maya Chen",
                 "alias": "The Phase Walker",
