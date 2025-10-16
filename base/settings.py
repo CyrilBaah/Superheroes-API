@@ -58,6 +58,9 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    # Simple in-memory rate limiting middleware. Uses LocMemCache and is intended
+    # for development / small deployments. See base/middleware.py for details.
+    "base.middleware.SimpleRateLimitMiddleware",
 ]
 
 REST_FRAMEWORK = {
@@ -74,6 +77,34 @@ REST_FRAMEWORK = {
     # Schema
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
+
+# Cache: use Django's in-memory LocMemCache by default. For production or
+# multi-process deployments consider Redis or Memcached.
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+        "LOCATION": "unique-superheroes-api",
+    }
+}
+
+# DRF throttling (optional). These use Django cache backend and provide an
+# alternative to the middleware above. You can tune these values or disable
+# them if you prefer the custom middleware.
+# Temporarily disabled to test custom middleware
+# REST_FRAMEWORK.setdefault("DEFAULT_THROTTLE_CLASSES", [
+#     "rest_framework.throttling.UserRateThrottle",
+#     "rest_framework.throttling.AnonRateThrottle",
+# ])
+REST_FRAMEWORK.setdefault("DEFAULT_THROTTLE_RATES", {
+    "user": os.getenv("DRF_USER_RATE", "100/minute"),
+    "anon": os.getenv("DRF_ANON_RATE", "20/minute"),
+})
+
+# Simple middleware-configurable defaults (used by base.middleware.SimpleRateLimitMiddleware)
+# RATE_LIMIT_REQUESTS: number of requests allowed per RATE_LIMIT_WINDOW seconds
+# RATE_LIMIT_WINDOW: window size in seconds
+RATE_LIMIT_REQUESTS = int(os.getenv("RATE_LIMIT_REQUESTS", 100))
+RATE_LIMIT_WINDOW = int(os.getenv("RATE_LIMIT_WINDOW", 60))
 
 ROOT_URLCONF = "base.urls"
 
