@@ -309,6 +309,26 @@ class Command(BaseCommand):
                 "is_active": True,
                 "is_villain": False,
             },
+            {
+                "name": "Star Sentinel",
+                "real_name": "Aria Sol",
+                "alias": "The Luminarch",
+                "age": 27,
+                "height": Decimal("172.00"),
+                "weight": Decimal("62.00"),
+                "powers": (
+                    "Stellar energy manipulation, light constructs, solar flares, "
+                    "radiation shielding"
+                ),
+                "power_level": 9,
+                "origin_story": (
+                    "Born during a solar storm aboard an orbital lab, bonded to a "
+                    "stellar core fragment."
+                ),
+                "universe": "Original",
+                "is_active": True,
+                "is_villain": False,
+            },
         ]
 
         created_count = 0
