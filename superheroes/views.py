@@ -108,7 +108,9 @@ class SuperheroViewSet(ModelViewSet):
         try:
             limit = int(request.query_params.get("limit", 10))
             if limit < 0:
-                raise ValueError("Invalid value for 'limit'. Must be a positive integer")
+                raise ValueError(
+                    "Invalid value for 'limit'. Must be a positive integer"
+                )
         except ValueError:
             return Response(
                 {"error": "Invalid value for 'limit'. Must be an integer."},

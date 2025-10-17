@@ -309,6 +309,27 @@ class Command(BaseCommand):
                 "is_active": True,
                 "is_villain": False,
             },
+            {
+                "name": "Elektra",
+                "real_name": "Elektra Natchios",
+                "alias": "The Assassin",
+                "age": 35,
+                "height": Decimal("175.00"),
+                "weight": Decimal("59.00"),
+                "powers": (
+                    "Expert martial artist, master assassin, "
+                    "acrobatic agility, skilled with twin sai, "
+                    "exceptional stealth and hand-to-hand combat"
+                ),
+                "power_level": 8,
+                "origin_story": (
+                    "Trained by the Hand, Elektra is a skilled assassin",
+                    " who operates in the shadows and often crosses paths with Daredevil.",
+                ),
+                "universe": "Marvel",
+                "is_active": True,
+                "is_villain": False,
+            },
         ]
 
         created_count = 0
