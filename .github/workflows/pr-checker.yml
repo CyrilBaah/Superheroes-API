@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      SECRET_KEY: ${{ secrets.GH_TOKEN }}
+      SECRET_KEY: test_secret_key_
       TEST_DATABASE_PREFIX: test_
 
     services:
