@@ -309,7 +309,7 @@ class Command(BaseCommand):
                 "is_active": True,
                 "is_villain": False,
             },
-               {
+            {
                 "name": "Elektra",
                 "real_name": "Elektra Natchios",
                 "alias": "The Assassin",
