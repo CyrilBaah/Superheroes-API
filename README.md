@@ -532,3 +532,90 @@ For questions, suggestions, or support:
 ⭐ Star this repository if you find it helpful!
 
 </div>
+
+---
+
+## 🔐 Rate Limiting
+
+This project includes a comprehensive rate limiting system with both custom middleware and DRF throttling capabilities.
+
+### Features
+
+- **Custom Middleware**: Simple in-memory rate limiting using Django's `LocMemCache`
+- **DRF Throttling**: Built-in Django REST Framework throttling support
+- **Configurable Limits**: Environment-based configuration for easy customization
+- **IP-based Tracking**: Anonymous users tracked by IP address
+- **User-based Tracking**: Authenticated users tracked by user ID
+- **Graceful Error Handling**: Clear 429 responses with retry information
+
+### Configuration
+
+#### Environment Variables
+
+Create a `.env` file with the following variables:
+
+```bash
+# Rate Limiting Configuration
+RATE_LIMIT_REQUESTS=100          # Number of requests allowed per window
+RATE_LIMIT_WINDOW=60             # Time window in seconds
+
+# DRF Throttling (optional)
+DRF_USER_RATE=100/minute         # Rate for authenticated users
+DRF_ANON_RATE=20/minute          # Rate for anonymous users
+```
+
+#### Default Settings
+
+- **Custom Middleware**: 100 requests per 60 seconds
+- **DRF Throttling**: 100/minute for users, 20/minute for anonymous
+- **Path Prefixes**: `/api/` and `/health/` endpoints are rate limited
+
+### API Response When Rate Limited
+
+When a user exceeds the rate limit, they receive:
+
+```json
+{
+    "error": "Rate limit exceeded. Try again later.",
+    "retry_after": 49
+}
+```
+
+- **HTTP Status**: `429 Too Many Requests`
+- **Content-Type**: `application/json`
+- **retry_after**: Seconds to wait before retrying
+
+### Testing Rate Limits
+
+Use the provided test script to verify rate limiting behavior:
+
+```bash
+# Start the development server
+python manage.py runserver
+
+# Test rate limiting (in another terminal)
+python scripts/test_rate_limit.py \
+  --url http://127.0.0.1:8000 \
+  --endpoints /api/superheroes/ /health/ \
+  --requests 120 \
+  --delay 0.05
+```
+
+### Quick Test with Lower Limits
+
+For faster testing, temporarily reduce the limits:
+
+```bash
+export RATE_LIMIT_REQUESTS=5
+export RATE_LIMIT_WINDOW=60
+python manage.py runserver
+```
+
+### Implementation Details
+
+- **Middleware Location**: `base/middleware.py`
+- **Settings Configuration**: `base/settings.py`
+- **Test Script**: `scripts/test_rate_limit.py`
+- **Cache Backend**: LocMemCache
+
+
