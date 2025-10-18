@@ -3,7 +3,7 @@ from typing import Optional
 
 from django.conf import settings
 from django.core.cache import cache
-from django.http import JsonResponse, HttpRequest, HttpResponse
+from django.http import HttpRequest, HttpResponse, JsonResponse
 
 
 class SimpleRateLimitMiddleware:
@@ -24,7 +24,9 @@ class SimpleRateLimitMiddleware:
         self.rate_limit = getattr(settings, "RATE_LIMIT_REQUESTS", 100)
         self.time_window = getattr(settings, "RATE_LIMIT_WINDOW", 60)
         # path prefixes where rate limiting should apply (e.g. API endpoints)
-        self.path_prefixes = getattr(settings, "RATE_LIMIT_PATH_PREFIXES", ["/api/", "/health/"])
+        self.path_prefixes = getattr(
+            settings, "RATE_LIMIT_PATH_PREFIXES", ["/api/", "/health/"]
+        )
 
     def __call__(self, request: HttpRequest) -> HttpResponse:
         # Only apply rate limiting to configured path prefixes

@@ -95,12 +95,16 @@ CACHES = {
 #     "rest_framework.throttling.UserRateThrottle",
 #     "rest_framework.throttling.AnonRateThrottle",
 # ])
-REST_FRAMEWORK.setdefault("DEFAULT_THROTTLE_RATES", {
-    "user": os.getenv("DRF_USER_RATE", "100/minute"),
-    "anon": os.getenv("DRF_ANON_RATE", "20/minute"),
-})
+REST_FRAMEWORK.setdefault(
+    "DEFAULT_THROTTLE_RATES",
+    {
+        "user": os.getenv("DRF_USER_RATE", "100/minute"),
+        "anon": os.getenv("DRF_ANON_RATE", "20/minute"),
+    },
+)
 
-# Simple middleware-configurable defaults (used by base.middleware.SimpleRateLimitMiddleware)
+# Simple middleware-configurable defaults
+# (used by base.middleware.SimpleRateLimitMiddleware)
 # RATE_LIMIT_REQUESTS: number of requests allowed per RATE_LIMIT_WINDOW seconds
 # RATE_LIMIT_WINDOW: window size in seconds
 RATE_LIMIT_REQUESTS = int(os.getenv("RATE_LIMIT_REQUESTS", 100))

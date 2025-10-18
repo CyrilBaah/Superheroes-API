@@ -1,7 +1,8 @@
 """Simple test script to exercise rate limits on API endpoints.
 
 Usage:
-    python scripts/test_rate_limit.py --url http://127.0.0.1:8000 --endpoints /api/superheroes/ /api/heroes/ --requests 50 --concurrency 1
+    python scripts/test_rate_limit.py --url http://127.0.0.1:8000 \\
+        --endpoints /api/superheroes/ /api/heroes/ --requests 50 --concurrency 1
 
 This script will sequentially send requests to each endpoint and report status codes
 and response bodies for failures (including 429 responses). It is intended for
@@ -13,7 +14,6 @@ Notes:
 """
 
 import argparse
-import json
 import sys
 import time
 from urllib.parse import urljoin
@@ -61,10 +61,18 @@ def hit_endpoint(full_url, count, delay=0.1):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--url", required=True, help="Base URL, e.g. http://127.0.0.1:8000")
-    parser.add_argument("--endpoints", nargs="+", required=True, help="List of endpoint paths to test")
-    parser.add_argument("--requests", type=int, default=100, help="Number of requests per endpoint")
-    parser.add_argument("--delay", type=float, default=0.1, help="Delay between requests (seconds)")
+    parser.add_argument(
+        "--url", required=True, help="Base URL, e.g. http://127.0.0.1:8000"
+    )
+    parser.add_argument(
+        "--endpoints", nargs="+", required=True, help="List of endpoint paths to test"
+    )
+    parser.add_argument(
+        "--requests", type=int, default=100, help="Number of requests per endpoint"
+    )
+    parser.add_argument(
+        "--delay", type=float, default=0.1, help="Delay between requests (seconds)"
+    )
     args = parser.parse_args()
 
     base = args.url
