@@ -5,6 +5,8 @@ on:
     types: [opened]
   pull_request:
     types: [opened, closed]
+  pull_request_target:
+    types: [opened, closed]
 
 jobs:
   welcome:
@@ -12,6 +14,7 @@ jobs:
     permissions:
       issues: write
       pull-requests: write
+      contents: read
     steps:
       - name: Post welcome comment on new issue
         if: github.event_name == 'issues' && github.event.action == 'opened'
@@ -26,7 +29,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Post welcome comment on new PR
-        if: github.event_name == 'pull_request' && github.event.action == 'opened'
+        if: (github.event_name == 'pull_request' || github.event_name == 'pull_request_target') && github.event.action == 'opened'
         uses: peter-evans/create-or-update-comment@v4
         with:
           issue-number: ${{ github.event.pull_request.number }}
@@ -38,7 +41,7 @@ jobs:
 
       - name: Congratulate user on their first merged PR
         if: |
-          github.event_name == 'pull_request' &&
+          (github.event_name == 'pull_request' || github.event_name == 'pull_request_target') &&
           github.event.action == 'closed' &&
           github.event.pull_request.merged == true &&
           github.event.pull_request.author_association == 'FIRST_TIME_CONTRIBUTOR'
