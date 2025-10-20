@@ -496,6 +496,109 @@ Please be respectful and constructive in all interactions. We're here to learn a
 Thanks to all the amazing contributors who have helped make this project better!
 
 <!-- readme: contributors -start -->
+<table>
+<tr>
+    <td align="center">
+        <a href="https://github.com/CyrilBaah">
+            <img src="https://avatars.githubusercontent.com/u/82481611?v=4" width="100;" alt="CyrilBaah"/>
+            <br />
+            <sub><b>CyrilBaah</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Parthav46">
+            <img src="https://avatars.githubusercontent.com/u/25856645?v=4" width="100;" alt="Parthav46"/>
+            <br />
+            <sub><b>Parthav Patel</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Sougata2006">
+            <img src="https://avatars.githubusercontent.com/u/177567075?v=4" width="100;" alt="Sougata2006"/>
+            <br />
+            <sub><b>Sougata Paul</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Divy13ansh">
+            <img src="https://avatars.githubusercontent.com/u/181671379?v=4" width="100;" alt="Divy13ansh"/>
+            <br />
+            <sub><b>Divyansh Chawla</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Lagmator22">
+            <img src="https://avatars.githubusercontent.com/u/133108827?v=4" width="100;" alt="Lagmator22"/>
+            <br />
+            <sub><b>Lagmator22</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/okay-anshu">
+            <img src="https://avatars.githubusercontent.com/u/216655710?v=4" width="100;" alt="okay-anshu"/>
+            <br />
+            <sub><b>Himanshu Pascalcase</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
+        <a href="https://github.com/CristiCode">
+            <img src="https://avatars.githubusercontent.com/u/59974081?v=4" width="100;" alt="CristiCode"/>
+            <br />
+            <sub><b>Cristina</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Bhavishya2912">
+            <img src="https://avatars.githubusercontent.com/u/69957211?v=4" width="100;" alt="Bhavishya2912"/>
+            <br />
+            <sub><b>Bhavishya</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/kristenking">
+            <img src="https://avatars.githubusercontent.com/u/68170283?v=4" width="100;" alt="kristenking"/>
+            <br />
+            <sub><b>Kristina Degtiareva</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/aritracodes-69">
+            <img src="https://avatars.githubusercontent.com/u/117724889?v=4" width="100;" alt="aritracodes-69"/>
+            <br />
+            <sub><b>Aritra Ghosh</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/BhagwatiOracle">
+            <img src="https://avatars.githubusercontent.com/u/165559253?v=4" width="100;" alt="BhagwatiOracle"/>
+            <br />
+            <sub><b>Bhagwati</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/davidzcode">
+            <img src="https://avatars.githubusercontent.com/u/32526223?v=4" width="100;" alt="davidzcode"/>
+            <br />
+            <sub><b>David</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
+        <a href="https://github.com/Deepakrameshkumar">
+            <img src="https://avatars.githubusercontent.com/u/98309550?v=4" width="100;" alt="Deepakrameshkumar"/>
+            <br />
+            <sub><b>Deepak A</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/SrinjoyeeDey">
+            <img src="https://avatars.githubusercontent.com/u/178504847?v=4" width="100;" alt="SrinjoyeeDey"/>
+            <br />
+            <sub><b>Srinjoyee_Dey</b></sub>
+        </a>
+    </td></tr>
+</table>
 <!-- readme: contributors -end -->
 
 ---
