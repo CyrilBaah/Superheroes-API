@@ -205,6 +205,22 @@ class Command(BaseCommand):
                 "is_villain": False,
             },
             {
+            "name": "Thor",
+            "real_name": "Thor Odinson",
+            "alias": "God of Thunder",
+            "age": 1500,
+            "height": Decimal("198.00"),
+            "weight": Decimal("290.00"),
+            "powers": "Godly strength, control over thunder and lightning, flight via Mjolnir, near-immortality, combat mastery",
+            "power_level": 10,
+            "origin_story": (
+                "Born in Asgard to Odin, the All-Father, and Frigga, Thor wields the enchanted hammer Mjolnir. "
+                "He protects both Asgard and Earth, proving himself worthy as the God of Thunder."
+            ),
+            "universe": "Marvel",
+            "is_active": True,
+            "is_villain": False,
+        },
                 "name": "Black Widow",
                 "real_name": "Natasha Romanoff",
                 "alias": "Natasha",
@@ -287,6 +303,7 @@ class Command(BaseCommand):
                 "universe": "Marvel",
                 "is_active": True,
                 "is_villain": False,
+            }
             },
             {
                 "name": "Quantum Guardian",
